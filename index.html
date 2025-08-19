@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirza Ahmer Baig</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Theme and Structure Plan:
+        - The new design is a modern, light-themed single-page application.
+        - A prominent hero section is the focal point, with the rest of the content flowing vertically.
+        - Key sections are accessible via a sticky navigation bar at the top.
+        - The color palette is light (white/light gray) with accents of black and a subtle blue.
+        - All elements are styled with rounded corners and clean typography.
+        - Skills are displayed in a simple grid, and experience uses a subtle, vertically aligned list.
+        - Projects are presented as clean, hoverable cards.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <nav class="bg-white/70 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-extrabold text-2xl text-black">MAB</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#summary" class="text-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition-colors">Summary</a>
+                        <a href="#skills" class="text-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</a>
+                        <a href="#experience" class="text-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition-colors">Experience</a>
+                        <a href="#projects" class="text-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition-colors">Projects</a>
+                        <a href="#education" class="text-gray-600 hover:text-black px-3 py-2 rounded-md text-sm font-medium transition-colors">Education</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- The negative top margin was removed and replaced with consistent padding to ensure equal top and bottom spacing. -->
+        <section id="summary" class="py-24 flex items-center justify-center">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <!-- User requested to ignore the profile picture, so it is commented out. -->
+                <!-- <img src="http://googleusercontent.com/file_content/1" alt="Mirza Ahmer Baig profile picture" class="w-40 h-40 rounded-full mx-auto mb-6 border-4 border-gray-300 shadow-xl object-cover"> -->
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black tracking-tight leading-tight">Mirza Ahmer Baig</h1>
+                <p class="mt-2 text-lg font-light text-gray-600">Senior iOS Engineer</p>
+                <p class="mt-4 text-sm text-gray-700 max-w-2xl mx-auto">A results-driven engineer with over 9 years of experience in mobile application development and team leadership. Proven track record of building and launching user-focused solutions that have achieved over 1M+ downloads and high ratings.</p>
+                <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="mailto:ahmer00716@gmail.com" class="inline-block bg-black text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-gray-800 transition-colors">Contact Me</a>
+                    <a href="https://www.linkedin.com/in/ahmer-baig-6b2b07130" target="_blank" class="inline-block bg-transparent text-gray-800 px-8 py-3 rounded-full font-semibold border-2 border-gray-800 hover:bg-gray-800 hover:text-white transition-colors">LinkedIn Profile</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 sm:py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-black tracking-tight">Technical Skills</h2>
+                    <p class="mt-2 text-base text-gray-600">A snapshot of my technical abilities and the tools I use to build high-quality mobile applications.</p>
+                </div>
+                <div id="skills-container" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-16 sm:py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-black tracking-tight">Professional Experience</h2>
+                    <p class="mt-2 text-base text-gray-600">My career journey, highlighting key responsibilities and accomplishments in each role. Click on any role to see more details.</p>
+                </div>
+                <div id="experience-timeline" class="mt-12 relative">
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-16 sm:py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-black tracking-tight">Key Projects</h2>
+                    <p class="mt-2 text-base text-gray-600">A selection of projects that demonstrate my ability to deliver impactful, data-driven results.</p>
+                </div>
+                <div id="projects-grid" class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+                <div class="mt-10 text-center text-gray-500 italic text-sm">
+                    <p>Information on more applications and professional references is available upon request.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="py-16 sm:py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-black tracking-tight">Education</h2>
+                    <p class="mt-2 text-base text-gray-600">My academic background in computer science.</p>
+                </div>
+                <div id="education-container" class="mt-10 space-y-6">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-100 text-gray-500 py-6 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Mirza Ahmer Baig. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-xl shadow-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto border-2 border-gray-300">
+            <div class="p-5 sm:p-6">
+                <div class="flex justify-between items-start">
+                    <h3 id="modal-title" class="text-xl font-bold text-black"></h3>
+                    <button id="modal-close-btn" class="text-gray-400 text-3xl hover:text-black">&times;</button>
+                </div>
+                <div id="modal-content" class="mt-3 text-gray-700 space-y-3 text-sm"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillsData = [
+                {
+                    category: 'iOS Development',
+                    skills: ['Swift', 'SwiftUI', 'Objective-C', 'Xcode', 'AppStore Submission', 'Core Data']
+                },
+                {
+                    category: 'Software Architecture & Design Patterns',
+                    skills: ['MVVM (Model-View-ViewModel)', 'Clean Architecture', 'VIPER']
+                },
+                {
+                    category: 'Methodologies & Tools',
+                    skills: ['Agile', 'JIRA', 'GIT', 'Subversion', 'Unit Testing', 'UI Testing', 'CI/CD']
+                },
+                {
+                    category: 'Programming Languages',
+                    skills: ['Swift', 'Javascript', 'Typescript', 'Java (SpringBoot)', 'Python (Automation)']
+                },
+                {
+                    category: 'Other',
+                    skills: ['Cloud Services (AWS)', 'RESTful APIs', 'Performance Optimization', 'Data Visualization']
+                }
+            ];
+
+            const experienceData = [
+                {
+                    role: 'Mobile Lead',
+                    company: 'ExperLabs, Lahore',
+                    period: 'Feb 2020 – Present',
+                    details: [
+                        'Promoted from Software Engineer (Feb 2020) to iOS Lead (Mar 2023) and subsequently to Mobile Lead (Mar 2025), reflecting consistent career growth and increasing responsibilities.',
+                        'Led and mentored a cross-functional team of iOS and Android engineers, overseeing all phases of the mobile development lifecycle from ideation to deployment.',
+                        '<strong>Professional Workshops:</strong> Conducted 3 workshops on iOS development for clients and team members, showcasing a commitment to mentorship and knowledge sharing.',
+                        'Spearheaded the design and development of multiple high-performance, scalable mobile applications, ensuring technical excellence and adherence to best practices.',
+                        'Collaborated directly with clients to gather requirements, translate them into actionable tasks, and maintain strong relationships through clear and responsive communication.',
+                        'Implemented innovative solutions using emerging technologies and streamlined development workflows with Agile and CI/CD practices.'
+                    ]
+                },
+                {
+                    role: 'iOS Developer',
+                    company: 'Virtual Force, Lahore',
+                    period: 'Feb 2019 – Feb 2020',
+                    details: [
+                        'Contributed to the full development cycle of high-performance mobile applications, focusing on clean code architecture and maintainability.',
+                        'Integrated various cloud services and third-party APIs to enhance application functionality and enrich the user experience.',
+                        'Collaborated with design and product teams to translate requirements into actionable tasks, ensuring efficient and timely delivery of features.'
+                    ]
+                },
+                {
+                    role: 'iOS Developer',
+                    company: 'Intagleo Systems, Lahore',
+                    period: 'Jul 2018 – Feb 2019',
+                    details: [
+                        'Designed and implemented robust, scalable, and secure mobile applications, with a focus on core iOS frameworks and best practices.',
+                        'Developed and integrated new features, including the use of cloud services and APIs, resulting in enhanced functionality for end-users.',
+                        'Worked closely with clients and stakeholders to ensure that delivered solutions were directly aligned with business needs.'
+                    ]
+                },
+                {
+                    role: 'iOS Developer',
+                    company: 'HASH TECH SOLUTIONS LTD, Lahore',
+                    period: 'Nov 2015 – Jul 2018',
+                    details: [
+                        'Managed client expectations and project timelines to ensure smooth and successful project delivery.',
+                        'Developed scalable and high-performance applications, contributing to the core codebase and feature implementation.',
+                        '<strong>Workshop Conductor:</strong> Conducted a professional workshop on iOS development for company employees.'
+                    ]
+                }
+            ];
+
+            const projectsData = [
+                {
+                    id: 'seated',
+                    title: 'Seated',
+                    description: 'A flagship app for restaurant reservations and rewards.',
+                    link: 'https://apps.apple.com/us/app/seated-rewards-at-restaurants/id1031760854',
+                    details: [
+                        '<strong>Flagship App Development:</strong> Launched a flagship iOS app that achieved over <strong>1M+ downloads</strong> and maintained a strong <strong>4.5-star rating</strong> on the App Store.',
+                        '<strong>Codebase Modernization:</strong> Migrated the entire legacy Objective-C codebase to Swift, boosting performance by <strong>30%</strong> and reducing maintenance costs by <strong>25%</strong>.',
+                        '<strong>Team Mentorship:</strong> Trained and onboarded junior engineers, improving team productivity by <strong>40%</strong> and reducing onboarding time by half.',
+                        '<strong>App Security:</strong> Enhanced app security by implementing SSL pinning, encrypted UserDefaults, and view blurring for sensitive data.'
+                    ]
+                },
+                {
+                    id: 'kualitee',
+                    title: 'Kualitee SDK',
+                    description: 'A private SDK for in-app bug reporting.',
+                    link: 'https://github.com/Kualitee/kualitee-iOS-sdk',
+                    details: [
+                        '<strong>SDK Development:</strong> Built the Kualitee SDK as a private framework in Swift, protecting intellectual property while enabling seamless integration for developers via Cocoapods.',
+                        '<strong>Bug Reporting:</strong> Developed shake-to-report functionality with screenshot capture and markup editor, allowing for direct bug logging to the Kualitee portal.'
+                    ],
+                    hasChart: false
+                },
+                {
+                    id: 'healthchain',
+                    title: 'iOTIED - HealthChain',
+                    description: 'A secure health data tracking and telehealth application.',
+                    details: [
+                        '<strong>Health Tracking Integration:</strong> Integrated with Apple\'s <strong>HealthKit</strong> to securely collect and display a comprehensive range of health data, including heart rate and blood glucose.',
+                        '<strong>Performance Optimization:</strong> Optimized data retrieval to show the latest information from all connected devices and wearables on the home screen by intelligently querying the most recent data points.',
+                        '<strong>Secure Storage:</strong> Leveraged blockchain technology for secure data storage with periodic syncs to ensure data integrity and user privacy.'
+                    ],
+                    hasChart: false
+                },
+                {
+                    id: 'rn-ionic-bridge',
+                    title: 'React Native to Ionic Bridge',
+                    description: 'A bridge for communication between React Native and Ionic applications.',
+                    details: [
+                        'Developed a bridge that enables communication between React Native and Ionic applications, supporting seamless synchronization and functionality extension for both hybrid platforms.'
+                    ],
+                    hasChart: false
+                },
+                {
+                    id: 'smart-tour',
+                    title: 'Smart Tour iOS',
+                    description: 'An app to manage property visits for dealers and optimize travel routes.',
+                    details: [
+                        '<strong>Route Optimization:</strong> Leveraged Google Maps API to optimize travel paths for property visits, minimizing time and avoiding revisiting locations.',
+                        '<strong>Custom UI:</strong> Engineered a custom progress view to visualize statuses, demonstrating expertise in native UI development without third-party libraries.',
+                        '<strong>Core Development:</strong> Built the application from scratch with a strong focus on **UI responsiveness and performance optimization**.'
+                    ],
+                    hasChart: false
+                },
+                {
+                    id: 'card-share',
+                    title: 'Card Share iOS',
+                    description: 'A greeting card creation app with advanced media features.',
+                    details: [
+                        '<strong>Canvas Development:</strong> Built a feature-rich canvas from scratch, enabling users to add and manipulate text, emojis, images, and stickers for personalized greetings.',
+                        '<strong>Key Technical Achievement:</strong> Implemented a **custom filter for blending an alpha channel movie with another video and a sound**, showcasing advanced media processing skills.'
+                    ],
+                    hasChart: false
+                },
+                {
+                    id: '4fit',
+                    title: '4Fit',
+                    description: 'A fitness app for home exercises and real-time activity monitoring.',
+                    details: [
+                        '<strong>User Engagement:</strong> Developed a daily reminder system to prompt users for fitness activities, enhancing user retention and routine adherence.',
+                        '<strong>Audio-Aided Workouts:</strong> Created an audio-guided feature to complement video exercises, allowing users to perform activities without constant screen interaction.',
+                        '<strong>Activity Tracking:</strong> Implemented real-time steps and fitness monitoring, building the app from scratch with a focus on **UI responsiveness and performance optimization**.'
+                    ],
+                    hasChart: false
+                },
+                {
+                    id: 'friendly-limo',
+                    title: 'Friendly Limo',
+                    description: 'A ride-sharing app with automated flight tracking and scheduling.',
+                    details: [
+                        '<strong>Real-Time Tracking:</strong> Integrated live location tracking to display the captain\'s position to the rider, providing transparency and an improved user experience.',
+                        '<strong>System Automation:</strong> Developed a feature to track flights and automatically schedule rides, demonstrating proficiency in complex system integration.',
+                        '<strong>Maps Optimization:</strong> Optimized map rendering to prevent app crashes and reduce high RAM usage, ensuring stability and a smooth user experience.'
+                    ],
+                    hasChart: false
+                },
+                {
+                    id: 'ipowerme',
+                    title: 'iPowerMe',
+                    description: 'An award-winning app for planning business and recreational trips.',
+                    details: [
+                        '<strong>Award-Winning Development:</strong> Developed a comprehensive trip planning application that won <strong>$4,000 USD</strong> at a national IT event, demonstrating high-quality, innovative design and functionality.',
+                        '<strong>Performance Optimization:</strong> Ensured core app performance and responsiveness by building a custom UI with complex, responsive gradients that do not cause lag or drain the device battery.',
+                        '<strong>Core Functionality:</strong> Enabled users to efficiently plan and manage both business and recreational trips with features like itinerary creation and location-based services.',
+                        '<strong>Technical Excellence:</strong> The app was recognized for its robust architecture and seamless user experience.'
+                    ],
+                    hasChart: false
+                }
+            ];
+            
+            const educationData = [
+                {
+                    degree: 'Bachelor in Computer Science (BS-CS)',
+                    institution: 'National University of Computer and Emerging Sciences, Lahore',
+                    period: 'Aug 2014 – Jul 2018',
+                    details: ['<strong>Workshop Conductor:</strong> Conducted a workshop on iOS development for students, demonstrating a commitment to giving back to the academic community.']
+                },
+                {
+                    degree: 'Intermediate, Computer Science',
+                    institution: 'Government College University, Lahore',
+                    period: 'Jul 2012 – May 2014'
+                },
+                {
+                    degree: 'Matriculation, Computer Sciences',
+                    institution: 'Cathedral High School, Lahore',
+                    period: 'Jun 1999 – Apr 2012'
+                }
+            ];
+
+            const skillsContainer = document.getElementById('skills-container');
+            skillsData.forEach(category => {
+                const categoryEl = document.createElement('div');
+                categoryEl.className = 'bg-white p-6 rounded-lg border-2 border-gray-300 shadow-xl';
+                let skillsHtml = `<h3 class="text-lg font-bold text-black mb-3">${category.category}</h3><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">`;
+                category.skills.forEach(skill => {
+                    skillsHtml += `<li>${skill}</li>`;
+                });
+                skillsHtml += `</ul>`;
+                categoryEl.innerHTML = skillsHtml;
+                skillsContainer.appendChild(categoryEl);
+            });
+
+            const experienceTimeline = document.getElementById('experience-timeline');
+            experienceData.forEach(job => {
+                const jobEl = document.createElement('div');
+                jobEl.className = 'mb-8 relative';
+                jobEl.innerHTML = `
+                    <div class="absolute -left-[9px] top-1 h-4 w-4 rounded-full bg-blue-600 border-4 border-white"></div>
+                    <div class="cursor-pointer experience-item pl-8">
+                        <p class="text-sm font-medium text-blue-600">${job.period}</p>
+                        <h3 class="text-lg font-bold text-black mt-1">${job.role}</h3>
+                        <p class="text-sm text-gray-700">${job.company}</p>
+                    </div>
+                    <div class="experience-details hidden mt-3 pl-8 border-l-2 border-gray-300">
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 text-sm">
+                            ${job.details.map(d => `<li>${d}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+                experienceTimeline.appendChild(jobEl);
+            });
+            
+            document.querySelectorAll('.experience-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const details = item.nextElementSibling;
+                    details.classList.toggle('hidden');
+                });
+            });
+
+            const projectsGrid = document.getElementById('projects-grid');
+            projectsData.forEach(project => {
+                const projectEl = document.createElement('div');
+                projectEl.className = 'bg-white p-5 rounded-lg shadow-md hover:shadow-xl transition-shadow border-2 border-gray-300';
+                projectEl.innerHTML = `
+                    <h3 class="text-lg font-bold text-black">${project.title}</h3>
+                    <p class="mt-2 text-gray-700 text-sm">${project.description}</p>
+                    <button data-project-id="${project.id}" class="open-modal-btn mt-3 text-blue-600 font-semibold hover:text-blue-400 transition-colors text-sm">View Details &rarr;</button>
+                `;
+                projectsGrid.appendChild(projectEl);
+            });
+
+            const educationContainer = document.getElementById('education-container');
+            educationData.forEach(edu => {
+                const eduEl = document.createElement('div');
+                eduEl.className = 'bg-white p-5 rounded-lg shadow-sm border-2 border-gray-300';
+                let eduDetailsHtml = '';
+                if (edu.details) {
+                    eduDetailsHtml = `<ul class="list-disc list-inside mt-2 space-y-1 text-gray-700 text-sm">${edu.details.map(d => `<li>${d}</li>`).join('')}</ul>`;
+                }
+
+                eduEl.innerHTML = `
+                    <h3 class="text-lg font-bold text-black">${edu.degree}</h3>
+                    <p class="mt-1 text-gray-700 text-sm">${edu.institution}</p>
+                    <p class="mt-1 text-xs text-gray-500">${edu.period}</p>
+                    ${eduDetailsHtml}
+                `;
+                educationContainer.appendChild(eduEl);
+            });
+
+            const modal = document.getElementById('project-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            let chartInstance = null;
+
+            document.querySelectorAll('.open-modal-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const projectId = btn.dataset.projectId;
+                    const project = projectsData.find(p => p.id === projectId);
+                    
+                    modalTitle.textContent = project.title;
+                    
+                    let contentHtml = `<ul class="list-disc list-inside space-y-2">${project.details.map(d => `<li>${d}</li>`).join('')}</ul>`;
+                    
+                    if (project.hasChart) {
+                        contentHtml += `<div class="mt-6"><div class="chart-container"><canvas id="impactChart"></canvas></div></div>`;
+                    }
+
+                    if (project.link) {
+                        const linkText = project.id === 'seated' ? 'View on App Store' : 'View on GitHub';
+                        contentHtml += `<div class="mt-6"><a href="${project.link}" target="_blank" class="inline-block bg-black text-white px-6 py-3 rounded-full font-semibold shadow-md hover:bg-gray-800 transition-colors">${linkText}</a></div>`;
+                    }
+                    
+                    modalContent.innerHTML = contentHtml;
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+
+                    if (project.hasChart) {
+                        const ctx = document.getElementById('impactChart').getContext('2d');
+                        if (chartInstance) {
+                            chartInstance.destroy();
+                        }
+                        chartInstance = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Performance Boost', 'Maintenance Cost Reduction'],
+                                datasets: [{
+                                    label: '% Improvement',
+                                    data: [30, 25],
+                                    backgroundColor: [
+                                        'rgba(59, 130, 246, 0.5)',
+                                        'rgba(16, 185, 129, 0.5)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(59, 130, 246, 1)',
+                                        'rgba(16, 185, 129, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        ticks: {
+                                            color: '#6b7280', // Tailwind gray-500
+                                            callback: function(value) {
+                                                return value + '%'
+                                            }
+                                        },
+                                        grid: {
+                                            color: '#d1d5db' // Tailwind gray-300
+                                        }
+                                    },
+                                    x: {
+                                        ticks: {
+                                            color: '#6b7280' // Tailwind gray-500
+                                        },
+                                        grid: {
+                                            color: '#d1d5db' // Tailwind gray-300
+                                        }
+                                    }
+                                },
+                                plugins: {
+                                    legend: {
+                                        display: false
+                                    },
+                                    tooltip: {
+                                        callbacks: {
+                                            label: function(context) {
+                                                return `${context.dataset.label}: ${context.raw}%`;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                if (chartInstance) {
+                    chartInstance.destroy();
+                    chartInstance = null;
+                }
+            };
+
+            modalCloseBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
